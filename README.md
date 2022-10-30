@@ -1,13 +1,9 @@
 
 # EnetLobby
 
-Language: GDScript
-Renderer: GLES 2
-<p align="center">
-  <a href="https://github.com/Paellu/Enet-Lobby/blob/7b0a0d70b8a2c1f60ebbab55bc151f125916bebd/icon.png">
-    <img width="400" alt="Logo">
-  </a>
-</p>
+<img src="icon.png" alt="Logo" width="150"/>`Language: GDScript
+Renderer: GLES2
+Version: 3.5.1`
 
 ## Goals
 
@@ -17,7 +13,9 @@ This project is meant only to demonstrate
 - How to connect two peers automatically
 
 Follows the (client-server-client) communication model.
+
 Whenever a change is made by a peer, the **Server** is notified.
+
 Then the **Server** notifies all related peers through an `rpc` call
 ```mermaid
 graph LR
