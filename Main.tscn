@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Routine.gd" type="Script" id=2]
 
 [node name="Main" type="Label"]
 anchor_left = 0.5
@@ -29,20 +30,20 @@ __meta__ = {
 
 [node name="HSeparator" type="HSeparator" parent="Intro"]
 modulate = Color( 0, 0, 0, 1 )
-margin_right = 338.0
+margin_right = 458.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="Name" type="LineEdit" parent="Intro"]
 margin_top = 34.0
-margin_right = 338.0
+margin_right = 458.0
 margin_bottom = 58.0
 placeholder_text = "Enter Valid Name"
 caret_blink = true
 
 [node name="Connection" type="HBoxContainer" parent="Intro"]
 margin_top = 62.0
-margin_right = 338.0
+margin_right = 458.0
 margin_bottom = 86.0
 alignment = 1
 
@@ -75,3 +76,16 @@ margin_left = 296.0
 margin_right = 338.0
 margin_bottom = 24.0
 text = "Host"
+
+[node name="Auto" type="CheckBox" parent="Intro/Connection"]
+margin_left = 342.0
+margin_right = 400.0
+margin_bottom = 24.0
+text = "Auto"
+
+[node name="Search" type="Button" parent="Intro/Connection"]
+margin_left = 404.0
+margin_right = 458.0
+margin_bottom = 24.0
+text = "Search"
+script = ExtResource( 2 )

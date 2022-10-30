@@ -4,6 +4,8 @@ onready var interface = $Intro/Connection/Interface
 onready var address = $Intro/Connection/Address
 onready var join = $Intro/Connection/Join
 onready var host = $Intro/Connection/Host
+onready var search = $Intro/Connection/Search
+onready var auto_connect = $Intro/Connection/Auto
 onready var intro_name = $Intro/Name
 onready var intro = $Intro
 
@@ -55,9 +57,13 @@ func _interface_selected(index):
 		join.set_disabled(false)
 	else:
 		# Make typing local address easy
-		var point = item.addresses[0].find_last(".")
-		address.set_text(item.addresses[0].left(point + 1))
-		address.set_editable(true)
+		if auto_connect.is_pressed():
+			address.set_text(item.addresses[0])
+			address.set_editable(false)
+		else:
+			var point = item.addresses[0].find_last(".")
+			address.set_text(item.addresses[0].left(point + 1))
+			address.set_editable(true)
 		address.set_cursor_position(address.text.length())
 		address.grab_focus()
 
@@ -92,7 +98,6 @@ func _join_pressed():
 		intro_name.grab_focus()
 		intro_name.set_text(names[randi() % names.size()])
 		intro_name.set_cursor_position(intro_name.text.length())
-		return
 		
 	var lobby = load("Lobby.tscn").instance()
 	lobby.set_script(load("Client.gd"))
@@ -110,7 +115,6 @@ func reset():
 	
 	set_text("Tilte Screen")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	# Setup intro signals
 	intro_name.connect("text_entered", self, "_name_changed")

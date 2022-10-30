@@ -218,7 +218,7 @@ func connection_host():
 		main.reset()
 		return
 		
-	# peer.set_bind_ip(address.text) # Set host address
+	#peer.set_bind_ip(address.text) # Set host address
 	var err = peer.create_server(LAN.PORT, LAN.MAX_PEERS) # Create server with max peers.
 	if err != OK:
 		if err == ERR_ALREADY_IN_USE:
